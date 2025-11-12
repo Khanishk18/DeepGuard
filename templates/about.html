@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">About DeepGuard</h1>
+<p class="lead">
+  DeepGuard is a multimodal deepfake detection platform that analyzes <b>images</b> and <b>audio</b> using deep learning.
+  We combine <b>CNN-based vision</b> with <b>Mel-spectrogram audio modeling</b> to identify synthetic artifacts and cross-modal inconsistencies.
+</p>
+
+<div class="pill-grid">
+  <div class="pill">Real-time predictions</div>
+  <div class="pill">Image CNN (MobileNetV2)</div>
+  <div class="pill">Audio CNN on Mel-spectrograms</div>
+  <div class="pill">Privacy-friendly processing</div>
+  <div class="pill">Confidence scoring</div>
+  <div class="pill">Modular architecture</div>
+</div>
+
+<section class="section">
+  <h2>Our Mission</h2>
+  <p>
+    We aim to restore trust in digital media by offering a fast, accurate, and accessible detector that empowers
+    journalists, platforms, and everyday users to verify content authenticity before sharing or acting on it.
+    DeepGuard is built for extensibility: video, lip-sync alignment, and adversarial robustness are on our roadmap.
+  </p>
+</section>
+
+<section class="section">
+  <h2>How It Works</h2>
+  <ul class="bullets">
+    <li><b>Visual:</b> Preprocessing + MobileNetV2 learns manipulation cues like unnatural edges, textures, and lighting.</li>
+    <li><b>Audio:</b> We convert speech to Mel-spectrograms and train a CNN to detect synthetic frequency/time patterns.</li>
+    <li><b>Inference:</b> Unified interface returns a label (Real/Fake) with a confidence bar for clarity.</li>
+  </ul>
+</section>
+{% endblock %}

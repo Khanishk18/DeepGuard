@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">Multimodal Deepfake Detection</h1>
+<p class="subtitle">Drop an image or audio to analyze authenticity in real time.</p>
+
+{% if msg %}
+  <p class="msg">{{ msg }}</p>
+{% endif %}
+
+<div class="grid">
+  <!-- Image Card -->
+  <section class="card">
+    <h2>Image Analysis</h2>
+    <form id="imgForm" method="post" action="{{ url_for('analyze_image') }}" enctype="multipart/form-data">
+      <input type="file" id="image_file" name="image_file" accept="image/*" hidden>
+      <label for="image_file" class="dropzone" id="imgDrop">
+        <div class="icon">☁️⬆️</div>
+        <div class="text">Drop your image here</div>
+        <small>or click to browse</small>
+      </label>
+      <div class="preview" id="imgPreview"></div>
+      <button type="submit" class="btn">Analyze Image</button>
+    </form>
+  </section>
+
+  <!-- Audio Card -->
+  <section class="card">
+    <h2>Audio Analysis</h2>
+    <form id="audForm" method="post" action="{{ url_for('analyze_audio') }}" enctype="multipart/form-data">
+      <input type="file" id="audio_file" name="audio_file" accept="audio/*" hidden>
+      <label for="audio_file" class="dropzone" id="audDrop">
+        <div class="icon">☁️⬆️</div>
+        <div class="text">Drop your audio here</div>
+        <small>or click to browse</small>
+      </label>
+      <div class="preview" id="audPreview"></div>
+      <button type="submit" class="btn">Analyze Audio</button>
+    </form>
+  </section>
+</div>
+
+{% if result %}
+<hr class="divider"/>
+<div class="result">
+  <h3>Result ({{ result.mode }}): <span class="{{ 'fake' if result.label=='Fake' else 'real' }}">{{ result.label }}</span></h3>
+  <div class="bar"><div class="fill {{ 'fake' if result.label=='Fake' else 'real' }}" style="width: {{ result.confidence }}%;"></div></div>
+  <p class="confidence">Confidence: {{ result.confidence }}%</p>
+</div>
+{% endif %}
+{% endblock %}

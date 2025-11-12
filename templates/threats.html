@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">Deepfake Threat Landscape</h1>
+<p class="lead">
+  Deepfakes are increasingly used in <b>misinformation</b>, <b>impersonation</b>, <b>fraud</b>, and <b>social engineering</b>.
+  As generation quality improves, reliable and ethical detection becomes critical to protect public trust.
+</p>
+
+<div class="cards">
+  <div class="mini-card">
+    <h3>Misinformation</h3>
+    <p>Manipulated media can sway public opinion and erode confidence in institutions and journalism.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Identity Fraud</h3>
+    <p>AI-cloned voices and faces can bypass weak verification, enabling scams and account takeovers.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Cybersecurity</h3>
+    <p>Social-engineering attacks now integrate synthetic voices in spear-phishing and voice-spoofing.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Societal Harm</h3>
+    <p>Harassment, extortion, and reputational damage increase as tools become more accessible.</p>
+  </div>
+</div>
+
+<section class="section">
+  <h2>DeepGuard’s Approach</h2>
+  <ul class="bullets">
+    <li><b>Multimodal:</b> Checks both sound and image content for cross-modal inconsistencies.</li>
+    <li><b>Model updates:</b> Retraining against new spoofing methods and datasets.</li>
+    <li><b>Ethics by design:</b> On-device processing where possible; minimal data retention.</li>
+  </ul>
+</section>
+{% endblock %}
